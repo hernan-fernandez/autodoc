@@ -49,4 +49,31 @@ Software Requirements
   * WikiWP (theme) : https://wordpress.org/themes/wikiwp/
 
 
+Document Structure
+==================
+
+At the moment every document will contain the following information.
+
+* General Information
+* Rol of the server or Important detected Software
+* Network Configuration
+  * Network cards
+  * Route table and gateway
+  * DNS Servers
+* Disk Configuration
+  * Filesystems
+  * Block Devices
+  * Local Mounted Filesystems
+  * Remote Mounted Filesystems
+* AutoStart Services
+* Last Installed Software
+* Process with major CPU Usage
+* Process with major RAM Usage
+* Configuration Files
+  * File /etc/hosts
+  * File /etc/passwd
+  * File /etc/group
+
+
+
 
