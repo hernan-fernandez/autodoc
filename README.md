@@ -96,10 +96,10 @@ date
 mkdir output
 while read -u 5 -r input; do
         echo "Copying script to remot host $input"
-        timeout 50 /usr/bin/time -f "%e %C" sshpass -ppassword scp -o  UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no remote_script.sh username@$input:/tmp 2>>/tmp/time.ssh.txt
+        timeout 50 /usr/bin/time -f "%e %C" sshpass -ppassword scp -o  UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no autodoc_master.sh username@$input:/tmp 2>>/tmp/time.ssh.txt
 
         echo "running script on remot host $input"
-        timeout 50 sshpass -ppassword ssh -o StrictHostKeyChecking=no username@$input /tmp/remote_script.sh $input > output/$input
+        timeout 50 sshpass -ppassword ssh -o StrictHostKeyChecking=no username@$input /tmp/autodoc_master.sh $input > output/$input
         echo "listo $input"
 
 done 5<SERVER_LIST.txt
