@@ -1,9 +1,16 @@
 Introduction
 ============
 
-This is an scalable  software that will automatically create an detailed engineering document of every of your Linux / Unix Servers.
+This is an scalable shell script software that will automatically create an detailed engineering document of every of your Linux / Unix Server. Today I'm easily documenting the status of 700 servers.
 
-It's pretty scalable. Today I'm using to generate the documents for more than 700 servers.
+The system is pretty scalable add another bunch of servers just mean add their ip address
+
+
+Why I have created this?
+========================
+
+When someone implement a new linux / unix server, an detailed engineering document is also created with all the configuration specs. The problem is that this document become obsolete very quickly. The problems is that if you manage dozens or hundred of servers like me, manually update the servers turn into an impossible task.
+
 
 
 Status of the project
@@ -48,6 +55,10 @@ Software Requirements
   * Diff Plug-in - Recommended Post Revision Display : https://es.wordpress.org/plugins/post-revision-display/
   * WikiWP (theme) : https://wordpress.org/themes/wikiwp/
 
+Why Wordpress?
+
+I don't want to create a new CMS. Wordpress is fine but you can replace it easily, to upload the documents I'm using XML-RPC, this is supported by other systems too, so you can adapt it too your needs.
+
 
 Document Structure
 ==================
@@ -74,6 +85,37 @@ At the moment every document will contain the following information.
   * File /etc/passwd
   * File /etc/group
 
+How massively run the shell script?
+==================================
+
+I recommend you sync the ssh key with all your servers, but if dont you can use sshpass.
+
+```
+#!/bin/bash
+date
+mkdir output
+while read -u 5 -r input; do
+        echo "Copying script to remot host $input"
+        timeout 50 /usr/bin/time -f "%e %C" sshpass -ppassword scp -o  UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no remote_script.sh username@$input:/tmp 2>>/tmp/time.ssh.txt
+
+        echo "running script on remot host $input"
+        timeout 50 sshpass -ppassword ssh -o StrictHostKeyChecking=no username@$input /tmp/remote_script.sh $input > output/$input
+        echo "listo $input"
+
+done 5<SERVER_LIST.txt
+date
+
+```
+The documentation will be saved on output directory
 
 
+**SERVER_LIST.txt**
+Each line of this file will contain a remote server.
 
+```
+1.2.3.4
+hostone.local
+hosttwo.local
+hostthree.client
+5.6.7.8
+```
