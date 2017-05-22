@@ -110,12 +110,12 @@ The documentation will be saved on output directory
 
 
 **SERVER_LIST.txt**
-Each line of this file will contain a remote server.
+Each line of this file will contain an IP address of the remote server
 
 ```
 1.2.3.4
-hostone.local
-hosttwo.local
-hostthree.client
 5.6.7.8
+9.10.11.12
+13.14.15.16
+17.18.19.20
 ```
