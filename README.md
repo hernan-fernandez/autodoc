@@ -120,6 +120,8 @@ Each line of this file will contain an IP address of the remote server
 17.18.19.20
 ```
 
-**Document Output**
+Document Output
+===============
+
 This is an example of the generated document for a Linux server
 https://github.com/hernan-fernandez/autodoc/raw/master/output_sample.pdf
