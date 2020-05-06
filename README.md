@@ -27,12 +27,12 @@ The software currently support the follwing unix systems
 Advantages
 ============
 
-* Scalable, reliable and up-to-date automatic documentation of all linux / unix systems
+* Scalable, reliable, updated and automatic documentation of all your Linux / Unix servers
 * Easy access to the documents. A single webpage per server.
 * Any authorized person or your client may have access to the details of the server without any risk of break it.
 * Ideal for supporting decisions about the systems in meetings.
 * It will help you to document system changes (using diff), also a useful tool to support the change management process.
-
+* Keep history of the changes on your server
 
 
 Requirements
@@ -119,3 +119,7 @@ Each line of this file will contain an IP address of the remote server
 13.14.15.16
 17.18.19.20
 ```
+
+**Document Output**
+This is an example of the generated document for a Linux server
+https://github.com/hernan-fernandez/autodoc/raw/master/output_sample.pdf
